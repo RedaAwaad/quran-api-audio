@@ -13,4 +13,4 @@ app.use(express.json());
 const recitersAPI = require('./api/reciters');
 app.use(recitersAPI);
 
-app.listen(process.env.port || 8000, () => console.log('The app is running on port 8000'));
+app.listen(process.env.PORT || 8000, () => console.log('The app is running on port 8000'));
