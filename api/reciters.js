@@ -13,13 +13,13 @@ request.get('http://mp3quran.net/api/_arabic.php', { json: true }, (err, res, bo
     });
 
     // Get Single Reciter Route
-    router.get('/api/reciters/:id', (req, res) => {
+    router.get('/api/reciters/:id', async (req, res) => {
         let reciterId = req.params.id;
         // Verify ID value
         if (isNaN(reciterId)) return res.status(422).json({code: 422, error: 'Not a valid ID!' });
         
         // Check About Id is Found
-        const currentReciter = reciters.find((reciter) => reciter.id === reciterId);
+        const currentReciter = await reciters.find((reciter) => reciter.id === reciterId);
     
         if (!currentReciter) return res.status(404).json({code: 404, message: 'ID Not Found!' });
     
