@@ -8,12 +8,12 @@ request.get('http://mp3quran.net/api/_arabic.php', { json: true }, (err, res, bo
     const reciters = body.reciters;
 
     // Get all Reciters Route
-    router.get('/reciters', (req, res) => {
+    router.get('/api/reciters', (req, res) => {
         res.send(reciters);
     });
 
     // Get Single Reciter Route
-    router.get('/reciters/:id', (req, res) => {
+    router.get('/api/reciters/:id', (req, res) => {
         let reciterId = req.params.id;
         // Verify ID value
         if (isNaN(reciterId)) return res.status(422).json({code: 422, error: 'Not a valid ID!' });
